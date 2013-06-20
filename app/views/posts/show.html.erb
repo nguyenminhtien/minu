@@ -1,0 +1,17 @@
+<h1><style.color: red><%= @post.title %><h1>
+
+	<%= @post.text %>
+	<h2>comment</h2>
+	<% @post.comment.each do |comment| %>
+	<p><%= comment.text %></p>
+	<P> <%= time_ago_in_words comment.created_at %> ago </p>
+		<%end>
+
+<p>
+	<%= link_to "back" ,posts_path %>
+
+
+	<%= link_to "edit", edit_post_path(@post)  %>
+
+	<%= link_to "delete", @post, :method => :delete, :confirm => "are you sure" %>
+</p>
